@@ -169,6 +169,9 @@ p {
   padding-top: 10rem;
 }
 
+#our-story h2{
+  color: #9d174d;
+}
 /* ==== Video Section ==== */
 #wedding-video .text {
   padding-top: 5rem;
@@ -183,6 +186,7 @@ p {
 
 #wedding-video h2 {
   margin-top: 5rem;
+  color: #9d174d;
 }
 
 /* ==== Prewedding Photos Placeholder ==== */
@@ -196,6 +200,10 @@ p {
   text-align: center;
   overflow: hidden;
   padding: 2rem;
+}
+
+.prewedding-photos{
+  color: #9d174d;
 }
 
 .prewedding-overlay {
