@@ -1,0 +1,586 @@
+@import url("https://fonts.googleapis.com/css2?family=Michroma&family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+#root {
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  color: #333;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ==== Header & Navbar ==== */
+.header {
+  width: 100%;
+  background-color: #ffe4e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.site-title {
+  font-family: "Michroma", sans-serif;
+  font-size: 25px;
+  font-weight: 900;
+  color: #db2777;
+}
+
+/* Hamburger menu toggle */
+.menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  margin-left: auto;
+  align-self: center;
+  margin-top: -1.7rem;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #db2777;
+  border-radius: 2px;
+}
+
+.navbar {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #db2777;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #a94b72;
+}
+
+/* ==== Sections General ==== */
+section {
+  padding: 4rem 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ==== Home Section ==== */
+#home {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+#home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* background-image: url('./assets/image/home.jpg'); pastikan path sesuai */
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.4) blur(2px);
+  z-index: -1;
+}
+
+#home h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+#home p {
+  color: #f8f8f8;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.slider-nav-button {
+  font-size: 2rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  outline: none;
+}
+
+.slider-nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.slider-nav-button:focus {
+  outline: none; /* <- hapus garis fokus */
+  box-shadow: none; /* <- hapus efek glow/border fokus */
+}
+
+.slider-nav-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  transform: translateY(-50%);
+}
+
+/* ==== Our Story ==== */
+#our-story {
+  background-color: #feeff7;
+  text-align: center;
+  padding-top: 10rem;
+}
+
+/* ==== Video Section ==== */
+#wedding-video .text {
+  padding-top: 5rem;
+}
+
+#wedding-video iframe {
+  width: 100%;
+  height: 360px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#wedding-video h2 {
+  margin-top: 5rem;
+}
+
+/* ==== Prewedding Photos Placeholder ==== */
+.prewedding-section {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(to right, #fff0f4, #ffe4e6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.prewedding-overlay {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+}
+
+.coming-soon-badge {
+  display: inline-block;
+  margin-top: 1.5rem;
+  background-color: #db2777;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.07);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Section Prewedding Photos */
+/* Tambahkan di App.css */
+
+/* Prewedding Photos Section */
+/* #prewedding-photos {
+    padding: 0;
+    background-color: white;
+    text-align: center;
+    position: relative;
+  }
+
+  #prewedding-photos h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #be123c; /* pink-700 */
+/* margin-bottom: 1rem;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    text-align: left; */
+/* } */
+
+/* #prewedding-photos .photo-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  #prewedding-photos .photo-wrapper img {
+    width: 100%;
+    height: 90vh;
+    object-fit: cover;
+    transition: all 0.7s ease-in-out;
+  }
+
+  #prewedding-photos .slider-nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 9999px;
+    z-index: 10;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  #prewedding-photos .slider-nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  #prewedding-photos .slider-nav-button.left {
+    left: 1rem;
+  }
+
+  #prewedding-photos .slider-nav-button.right {
+    right: 1rem;
+  } */
+
+/* ==== Location ==== */
+#location {
+  background-color: #fff0f4;
+  text-align: center;
+  padding-top: 7rem;
+}
+
+#location h2 {
+  font-size: 2rem;
+  color: #be123c;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+#location p {
+  margin-bottom: 1rem;
+}
+
+.location-map {
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.location-map iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+}
+
+/* ==== Footer ==== */
+footer {
+  background-color: #ffe4e6;
+  color: #9d174d;
+  text-align: center;
+  padding: 20px 30px;
+  font-size: 14px;
+}
+
+/* ==== Responsive Breakpoints ==== */
+
+/* Extra small (phones) */
+@media (max-width: 575.98px) {
+  body,
+  p,
+  a,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  label {
+    font-size: 90%; /* skala turun 90% dari default */
+  }
+
+  .header {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(255, 228, 230, 0.95);
+  }
+
+  .site-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1100;
+    margin-top: -2rem;
+    margin-bottom: 0.3rem;
+  }
+  /* Default hamburger bar */
+  .hamburger span {
+    width: 28px;
+    height: 3px;
+    background-color: #db2777;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    display: block;
+    position: relative;
+  }
+
+  /* Saat menu aktif (checkbox dicentang) */
+  .menu-toggle:checked + .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(6.5px, 6.5px);
+  }
+
+  .menu-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle:checked + .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    background-color: rgba(255, 228, 230, 0.95); /* semi-transparent pink */
+    z-index: 999;
+    text-align: center;
+    transition: opacity 0.3s ease;
+    /* opacity: 0; */
+    /* pointer-events: none; */
+    /* transform: translateY(-40px); */
+    opacity: 0;
+    transform: translateY(-30px);
+    pointer-events: none;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+
+  .menu-toggle:checked + .hamburger + .navbar {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  section {
+    padding: 3rem 1rem;
+  }
+
+  #home h2 {
+    font-size: 1.5rem;
+  }
+
+  iframe {
+    height: 220px;
+  }
+
+  form {
+    padding: 1.5rem;
+  }
+
+  form button {
+    width: 100%;
+  }
+
+  #our-story h2 {
+    margin-top: -2rem;
+    font-size: 25px;
+    color: #9d174d;
+  }
+
+  #our-story p {
+    font-size: 13px;
+  }
+
+  #wedding-video h2 {
+    margin-top: 4rem;
+    font-size: 20px;
+    color: #9d174d;
+  }
+
+  .slider-nav-button {
+    font-size: 1.2rem;
+    padding: 0.8rem 0.8rem;
+  }
+}
+
+/* Medium (tablets) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+  body,
+  p,
+  a,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  label {
+    font-size: 95%; /* skala turun 90% dari default */
+  }
+
+  .header {
+    padding: 25px 35px;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(255, 228, 230, 0.95);
+  }
+
+  .hamburger {
+    display: flex;
+    position: relative;
+    z-index: 1001;
+    margin-left: auto;
+    margin-bottom: -1rem;
+  }
+
+  /* Default hamburger bar */
+  .hamburger span {
+    width: 28px;
+    height: 3px;
+    background-color: #db2777;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    display: block;
+    position: relative;
+  }
+
+  /* Saat menu aktif (checkbox dicentang) */
+  .menu-toggle:checked + .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(6.5px, 6.5px);
+  }
+
+  .menu-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle:checked + .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    background-color: rgba(255, 228, 230, 0.95); /* semi-transparent pink */
+    z-index: 1000;
+    text-align: center;
+    transition: opacity 0.8s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .menu-toggle:checked + .hamburger + .navbar {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .site-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  section {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .location-map iframe {
+    height: 300px;
+  }
+
+  #our-story h2 {
+    margin-top: -2rem;
+    font-size: 25px;
+    color: #9d174d;
+  }
+
+  #our-story p {
+    font-size: 14px;
+  }
+
+  #wedding-video h2 {
+    font-size: 25px;
+    margin-top: 5rem;
+  }
+
+  .slider-nav-button {
+    font-size: 1.2rem;
+    padding: 1.2rem 1.2rem;
+  }
+}
