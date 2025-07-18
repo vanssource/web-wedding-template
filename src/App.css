@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Michroma&family=Poppins:wght@400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 * {
   box-sizing: border-box;
@@ -10,9 +10,8 @@ html {
   scroll-behavior: smooth;
 }
 
-body,
-#root {
-  font-family: "Poppins", sans-serif;
+body, #root {
+  font-family: 'Poppins', sans-serif;
   background-color: #fff;
   color: #333;
   min-height: 100vh;
@@ -120,15 +119,16 @@ p {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   color: #fff;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
 }
 
 #home p {
   color: #f8f8f8;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
 }
 
-.slider-nav-button {
+/* Tombol Navigasi Khusus HOME */
+.home-slider-nav-button {
   font-size: 2rem;
   color: white;
   background-color: rgba(0, 0, 0, 0.4);
@@ -137,19 +137,31 @@ p {
   border-radius: 9999px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  outline: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
 }
 
-.slider-nav-button:hover {
+.home-slider-nav-button:hover {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.slider-nav-button:focus {
-  outline: none; /* <- hapus garis fokus */
-  box-shadow: none; /* <- hapus efek glow/border fokus */
+.home-slider-nav-button.left {
+  left: 1rem;
 }
 
-.slider-nav-container {
+.home-slider-nav-button.right {
+  right: 1rem;
+}
+
+
+.home-slider-nav-button:focus {
+  outline: none;       /* <- hapus garis fokus */
+  box-shadow: none;    /* <- hapus efek glow/border fokus */
+}
+
+.home-slider-nav-container {
   position: absolute;
   top: 50%;
   left: 0;
@@ -158,8 +170,9 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 2rem;
   transform: translateY(-50%);
+  width: 100%;
 }
 
 /* ==== Our Story ==== */
@@ -169,75 +182,108 @@ p {
   padding-top: 10rem;
 }
 
-#our-story h2{
-  color: #9d174d;
-}
 /* ==== Video Section ==== */
 #wedding-video .text {
   padding-top: 5rem;
+}
+
+#wedding-video h2{
+  margin-top: 5rem;
 }
 
 #wedding-video iframe {
   width: 100%;
   height: 360px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-#wedding-video h2 {
-  margin-top: 5rem;
-  color: #9d174d;
-}
-
-/* ==== Prewedding Photos Placeholder ==== */
+/* SECTION PREWEDDING PHOTOS */
 .prewedding-section {
-  position: relative;
-  height: 100vh;
-  background: linear-gradient(to right, #fff0f4, #ffe4e6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 60px 20px;
+  background-color: linear-gradient(135deg, #f5f5f5, #ffe5ec); /* latar hitam pekat agar foto tampil dramatis */
   text-align: center;
-  overflow: hidden;
-  padding: 2rem;
 }
 
-.prewedding-photos{
+#prewedding-photos h2{
+  padding-top: 5rem;
+}
+
+.prewedding-title {
+  font-size: 2.5rem;
+  font-weight: 800;
   color: #9d174d;
+  margin-bottom: 40px;
+  /* text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); */
 }
 
-.prewedding-overlay {
-  background-color: rgba(255, 255, 255, 0.85);
-  border-radius: 16px;
-  padding: 3rem 2rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  max-width: 600px;
+.prewedding-slider {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
 }
 
-.coming-soon-badge {
-  display: inline-block;
-  margin-top: 1.5rem;
-  background-color: #db2777;
-  color: white;
-  font-weight: 600;
-  padding: 0.5rem 1.25rem;
-  border-radius: 9999px;
-  animation: pulse 1.5s infinite;
+.prewedding-photo {
+  display: none;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
+.prewedding-photo.active {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
     opacity: 1;
-  }
-  50% {
-    transform: scale(1.07);
-    opacity: 0.85;
-  }
-  100% {
     transform: scale(1);
-    opacity: 1;
   }
+}
+
+.slider-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background-color: rgba(48, 48, 48, 0.7);
+  color: #ffffff;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 10%;
+  z-index: 10;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.slider-nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-nav-button.left {
+  left: 15px;
+}
+
+.slider-nav-button.right {
+  right: 15px;
+}
+
+.slider-nav-button:focus {
+  outline: none;       /* <- hapus garis fokus */
+  box-shadow: none;    /* <- hapus efek glow/border fokus */
 }
 
 /* Section Prewedding Photos */
@@ -245,60 +291,61 @@ p {
 
 /* Prewedding Photos Section */
 /* #prewedding-photos {
-    padding: 0;
-    background-color: white;
-    text-align: center;
-    position: relative;
-  }
+  padding: 0;
+  background-color: white;
+  text-align: center;
+  position: relative;
+}
 
-  #prewedding-photos h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #be123c; /* pink-700 */
-/* margin-bottom: 1rem;
-    padding-left: 2rem;
-    padding-top: 2rem;
-    text-align: left; */
+#prewedding-photos h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #be123c; /* pink-700 */
+  /* margin-bottom: 1rem;
+  padding-left: 2rem;
+  padding-top: 2rem;
+  text-align: left; */
 /* } */
 
 /* #prewedding-photos .photo-wrapper {
-    position: relative;
-    width: 100%;
-  }
+  position: relative;
+  width: 100%;
+}
 
-  #prewedding-photos .photo-wrapper img {
-    width: 100%;
-    height: 90vh;
-    object-fit: cover;
-    transition: all 0.7s ease-in-out;
-  }
+#prewedding-photos .photo-wrapper img {
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
+  transition: all 0.7s ease-in-out;
+}
 
-  #prewedding-photos .slider-nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 9999px;
-    z-index: 10;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
+#prewedding-photos .slider-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 9999px;
+  z-index: 10;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-  #prewedding-photos .slider-nav-button:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
+#prewedding-photos .slider-nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
 
-  #prewedding-photos .slider-nav-button.left {
-    left: 1rem;
-  }
+#prewedding-photos .slider-nav-button.left {
+  left: 1rem;
+}
 
-  #prewedding-photos .slider-nav-button.right {
-    right: 1rem;
-  } */
+#prewedding-photos .slider-nav-button.right {
+  right: 1rem;
+} */ 
+
 
 /* ==== Location ==== */
 #location {
@@ -314,7 +361,7 @@ p {
   margin-bottom: 2rem;
 }
 
-#location p {
+#location p{
   margin-bottom: 1rem;
 }
 
@@ -345,6 +392,7 @@ footer {
 
 /* Extra small (phones) */
 @media (max-width: 575.98px) {
+
   body,
   p,
   a,
@@ -457,19 +505,19 @@ footer {
     width: 100%;
   }
 
-  #our-story h2 {
+  #our-story h2{
     margin-top: -2rem;
     font-size: 25px;
     color: #9d174d;
   }
 
-  #our-story p {
+  #our-story p{
     font-size: 13px;
   }
 
-  #wedding-video h2 {
-    margin-top: 4rem;
-    font-size: 20px;
+  #wedding-video h2{
+    margin-top: 3rem;
+    font-size: 25px;
     color: #9d174d;
   }
 
@@ -477,10 +525,50 @@ footer {
     font-size: 1.2rem;
     padding: 0.8rem 0.8rem;
   }
+
+  .prewedding-section {
+    padding: 40px 10px;
+  }
+
+  .prewedding-title {
+    font-size: 1.75rem;
+    margin-bottom: 24px;
+  }
+
+  .prewedding-slider {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  #prewedding-photos h2{
+    margin-top: 1rem;
+    font-size: 25px;
+    color: #9d174d;
+  }
+
+  .prewedding-photo {
+    border-radius: 12px;
+  }
+
+  .slider-nav-button {
+    font-size: 1.5rem;
+    padding: 6px 10px;
+    border-radius: 50%;
+  }
+
+  .slider-nav-button.left {
+    left: 8px;
+  }
+
+  .slider-nav-button.right {
+    right: 8px;
+  }
 }
 
 /* Medium (tablets) */
-@media (min-width: 576px) and (max-width: 991.98px) {
+@media (min-width: 1024px) and (max-width: 600px) {
+  
   body,
   p,
   a,
@@ -493,7 +581,7 @@ footer {
   label {
     font-size: 95%; /* skala turun 90% dari default */
   }
-
+  
   .header {
     padding: 25px 35px;
     flex-direction: row;
@@ -553,6 +641,7 @@ footer {
     pointer-events: none;
   }
 
+
   .menu-toggle:checked + .hamburger + .navbar {
     display: flex;
     opacity: 1;
@@ -572,23 +661,164 @@ footer {
     height: 300px;
   }
 
-  #our-story h2 {
+  #our-story h2{
     margin-top: -2rem;
     font-size: 25px;
     color: #9d174d;
   }
 
-  #our-story p {
+  #our-story p{
     font-size: 14px;
   }
 
-  #wedding-video h2 {
+  #wedding-video h2{
     font-size: 25px;
-    margin-top: 5rem;
   }
 
   .slider-nav-button {
     font-size: 1.2rem;
     padding: 1.2rem 1.2rem;
+  }
+
+  .prewedding-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .prewedding-slider {
+    max-width: 90%;
+  }
+
+  .slider-nav-button {
+    font-size: 1.8rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+  
+  body,
+  p,
+  a,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  label {
+    font-size: 95%; /* skala turun 90% dari default */
+  }
+  
+  .header {
+    padding: 25px 35px;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(255, 228, 230, 0.95);
+  }
+
+  .hamburger {
+    display: flex;
+    position: relative;
+    z-index: 1001;
+    margin-left: auto;
+    margin-bottom: -1rem;
+  }
+
+  /* Default hamburger bar */
+  .hamburger span {
+    width: 28px;
+    height: 3px;
+    background-color: #db2777;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    display: block;
+    position: relative;
+  }
+
+  /* Saat menu aktif (checkbox dicentang) */
+  .menu-toggle:checked + .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(6.5px, 6.5px);
+  }
+
+  .menu-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle:checked + .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    background-color: rgba(255, 228, 230, 0.95); /* semi-transparent pink */
+    z-index: 1000;
+    text-align: center;
+    transition: opacity 0.8s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+
+  .menu-toggle:checked + .hamburger + .navbar {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .site-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  section {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .location-map iframe {
+    height: 300px;
+  }
+
+  #our-story h2{
+    margin-top: -2rem;
+    font-size: 25px;
+    color: #9d174d;
+  }
+
+  #our-story p{
+    font-size: 14px;
+  }
+
+  #wedding-video h2{
+    font-size: 25px;
+  }
+
+  .slider-nav-button {
+    font-size: 1.2rem;
+    padding: 1.2rem 1.2rem;
+  }
+
+  .prewedding-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .prewedding-slider {
+    max-width: 90%;
+  }
+
+  .slider-nav-button {
+    font-size: 1.8rem;
+    padding: 8px 12px;
   }
 }
