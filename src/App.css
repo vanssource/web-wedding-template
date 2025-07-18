@@ -514,7 +514,7 @@ footer {
   .slider-nav-button {
     font-size: 1.5rem;
     padding: 6px 10px;
-    border-radius: 50%;
+    border-radius: 10%;
   }
 
   .slider-nav-button.left {
