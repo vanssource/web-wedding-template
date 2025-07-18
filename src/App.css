@@ -178,9 +178,24 @@ p {
 /* ==== Our Story ==== */
 #our-story {
   background-color: #feeff7;
-  text-align: center;
   padding-top: 10rem;
+  padding-bottom: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
+
+#our-story h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #9d174d;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
 
 /* ==== Video Section ==== */
 #wedding-video .text {
@@ -188,14 +203,19 @@ p {
 }
 
 #wedding-video h2{
+  font-size: 2.5rem;
+  font-weight: 800;
   margin-top: 5rem;
+  color: #9d174d;
+  text-align: center;
 }
 
 #wedding-video iframe {
   width: 100%;
   height: 360px;
-  border-radius: 12px;
+  border-radius: 24px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: none;
 }
 
 /* SECTION PREWEDDING PHOTOS */
@@ -207,6 +227,7 @@ p {
 
 #prewedding-photos h2{
   padding-top: 5rem;
+  text-align: center;
 }
 
 .prewedding-title {
@@ -268,10 +289,10 @@ p {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.slider-nav-button:hover {
+/* .slider-nav-button:hover {
   background-color: rgba(255, 255, 255, 0.8);
   transform: translateY(-50%) scale(1.1);
-}
+} */
 
 .slider-nav-button.left {
   left: 15px;
@@ -285,67 +306,6 @@ p {
   outline: none;       /* <- hapus garis fokus */
   box-shadow: none;    /* <- hapus efek glow/border fokus */
 }
-
-/* Section Prewedding Photos */
-/* Tambahkan di App.css */
-
-/* Prewedding Photos Section */
-/* #prewedding-photos {
-  padding: 0;
-  background-color: white;
-  text-align: center;
-  position: relative;
-}
-
-#prewedding-photos h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #be123c; /* pink-700 */
-  /* margin-bottom: 1rem;
-  padding-left: 2rem;
-  padding-top: 2rem;
-  text-align: left; */
-/* } */
-
-/* #prewedding-photos .photo-wrapper {
-  position: relative;
-  width: 100%;
-}
-
-#prewedding-photos .photo-wrapper img {
-  width: 100%;
-  height: 90vh;
-  object-fit: cover;
-  transition: all 0.7s ease-in-out;
-}
-
-#prewedding-photos .slider-nav-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  background-color: rgba(0, 0, 0, 0.3);
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 9999px;
-  z-index: 10;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-#prewedding-photos .slider-nav-button:hover {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-#prewedding-photos .slider-nav-button.left {
-  left: 1rem;
-}
-
-#prewedding-photos .slider-nav-button.right {
-  right: 1rem;
-} */ 
-
 
 /* ==== Location ==== */
 #location {
@@ -542,7 +502,7 @@ footer {
   }
 
   #prewedding-photos h2{
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     font-size: 25px;
     color: #9d174d;
   }
