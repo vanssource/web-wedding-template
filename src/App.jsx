@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
-import IntroDoor from './IntroDoor'; // 🔑 animasi pintu
+import IntroDoor from './IntroDoor'; //
 import bg1 from './assets/image/home.jpg';
 import bg2 from './assets/image/home1.jpg';
 import bg3 from './assets/image/home2.jpg';
@@ -76,10 +76,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col font-sans">
-      {/* 🔑 Pintu muncul di atas website */}
       {showIntro && <IntroDoor onFinish={() => setShowIntro(false)} />}
-
-      {/* 🔑 Website tetap dirender di belakang pintu */}
       <>
         <header className="header">
           <h1 className="site-title">Wedding Invitation</h1>
